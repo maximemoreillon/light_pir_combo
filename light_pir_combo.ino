@@ -31,7 +31,6 @@ Ticker MQTT_reconnect_timer;
 #define  MQTT_LIGHT_COMMAND_TOPIC "light/entrance/command"
 #define  MQTT_LIGHT_STATUS_TOPIC "light/entrance/status"
 #define  MQTT_MOTION_STATUS_TOPIC "motion/entrance/status"
-#define  MQTT_DEBUG_TOPIC "light/entrance/debug"
 #define  MQTT_LAST_WILL "OFF"
 #define  MQTT_QOS 1
 #define  MQTT_RETAIN true
@@ -74,13 +73,4 @@ void loop()
 {
   ArduinoOTA.handle();
   read_PIR();
-
-  // Debugging
-  static boolean debugged;
-  if(millis() > 10000 && !debugged){
-    debugged = true;
-    Serial.println("debugging");
-    MQTT_client.publish(MQTT_DEBUG_TOPIC, MQTT_QOS, MQTT_RETAIN, "ON");
-    MQTT_client.publish(MQTT_DEBUG_TOPIC, MQTT_QOS, MQTT_RETAIN, "OFF");
-  }
 }
