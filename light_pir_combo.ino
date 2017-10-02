@@ -1,9 +1,7 @@
 /*
- * MQTT OTA HALLWAY LIGHT v4
+ * Light and PIR combo
  * Maxime MOREILLON
- * Changelog
- * v4
- * - Now using Async MQTT library
+ * Board type: Wemos D1 Mini
  */
 
 // Libraries
@@ -14,23 +12,20 @@
 #include <Ticker.h> // Used when reconecting MQTT upon wifi drop
 
 #include "credentials.h";
+//#include "entrance_light_config.h";
+#include "bathroom_light_config.h";
 
 // Wifi
 WiFiEventHandler wifi_connect_handler;
 WiFiEventHandler wifi_disconnect_handler;
 Ticker wifi_reconnect_timer;
 
-// OTA settings
-#define HOSTNAME "entranceLight"
 
 // MQTT
 AsyncMqttClient MQTT_client;
 Ticker MQTT_reconnect_timer;
 #define MQTT_BROKER_ADDRESS IPAddress(192, 168, 1, 2)
 #define MQTT_PORT 1883
-#define  MQTT_LIGHT_COMMAND_TOPIC "light/entrance/command"
-#define  MQTT_LIGHT_STATUS_TOPIC "light/entrance/status"
-#define  MQTT_MOTION_STATUS_TOPIC "motion/entrance/status"
 #define  MQTT_LAST_WILL "OFF"
 #define  MQTT_QOS 1
 #define  MQTT_RETAIN true
@@ -40,7 +35,7 @@ Ticker MQTT_reconnect_timer;
 #define  PIR_PIN D2
 
 // Misc variables
-char* light_status;
+char* light_status = LIGHT_INITIAL_STATE;
 int last_PIR_reading;
 
 void setup()
@@ -53,14 +48,7 @@ void setup()
   Serial.println();
   Serial.println(); // Separate serial stream from initial gibberish
 
-  // IO init
-  pinMode(PIR_PIN, INPUT);
-  pinMode(LIGHT_PIN, OUTPUT);
-
-  // Light initial state
-  digitalWrite(LIGHT_PIN, LOW);
-  light_status = "OFF";
-
+  IO_setup();
   wifi_setup();
   MQTT_setup();
   OTA_setup();

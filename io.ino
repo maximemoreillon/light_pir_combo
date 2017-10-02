@@ -1,3 +1,18 @@
+void IO_setup(){
+
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LIGHT_PIN, OUTPUT);
+
+  // Initial state
+  if(strcmp(light_status,"ON") == 0) {
+    digitalWrite(LIGHT_PIN, HIGH);
+  }
+  else {
+    digitalWrite(LIGHT_PIN, LOW);
+  }
+}
+
+
 void read_PIR(){
   int PIR_reading = digitalRead(PIR_PIN);
   if(PIR_reading != last_PIR_reading) {
