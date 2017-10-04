@@ -12,6 +12,7 @@ ESP8266 based light controller with built-in PIR motion sensor
 * Wemos D1 Mini
 * TRIAC breakout board
 * HC-SR501 PIR motion sensor
+* AC-DC 5V transformer
 
 ### Schematics
 #### Main board
