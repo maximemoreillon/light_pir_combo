@@ -12,3 +12,11 @@ ESP8266 based light controller with built-in PIR motion sensor
 * Wemos D1 Mini
 * TRIAC breakout board
 * HC-SR501 PIR motion sensor
+
+### Schematics
+#### Main board
+![alt text](https://moreillon.duckdns.org/projects/iot/images/light_pir_combo_schem.png)
+
+#### TRIAC breakout board
+![alt text](https://moreillon.duckdns.org/projects/iot/images/triac_breakout_schem.png)
+
