@@ -11,6 +11,7 @@
 #include <AsyncMqttClient.h> // MQTT library
 #include <Ticker.h> // Used when reconecting MQTT upon wifi drop
 
+// Credentials and device specific configuration
 #include "credentials.h";
 //#include "entrance_light_config.h";
 #include "bathroom_light_config.h";
@@ -19,7 +20,6 @@
 WiFiEventHandler wifi_connect_handler;
 WiFiEventHandler wifi_disconnect_handler;
 Ticker wifi_reconnect_timer;
-
 
 // MQTT
 AsyncMqttClient MQTT_client;
