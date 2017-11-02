@@ -35,7 +35,7 @@ Ticker MQTT_reconnect_timer;
 #define  PIR_PIN D2
 
 // Misc variables
-char* light_status = LIGHT_INITIAL_STATE;
+char* light_status = INITIAL_STATE;
 int last_PIR_reading;
 
 void setup()
