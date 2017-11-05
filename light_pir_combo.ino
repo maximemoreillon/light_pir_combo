@@ -14,7 +14,8 @@
 // Credentials and device specific configuration
 #include "credentials.h";
 //#include "entrance_light_config.h";
-#include "bathroom_light_config.h";
+//#include "bathroom_light_config.h";
+#include "kitchen_light_config.h";
 
 // Wifi
 WiFiEventHandler wifi_connect_handler;
