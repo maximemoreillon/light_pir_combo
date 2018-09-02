@@ -16,8 +16,8 @@ ESP8266 based light controller with built-in PIR motion sensor
 
 ### Schematics
 #### Main board
-![alt text](https://moreillon.duckdns.org/projects/iot/images/light_pir_combo_schem.png)
+![alt text](http://maximemoreillon.com/images/projects/iot/light_pir/light_pir_combo_schem.png)
 
 #### TRIAC breakout board
-![alt text](https://moreillon.duckdns.org/projects/iot/images/triac_breakout_schem.png)
+![alt text](http://maximemoreillon.com/images/projects/iot/light_pir/triac_breakout_schem.png)
 
